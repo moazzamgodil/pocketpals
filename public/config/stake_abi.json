@@ -7,8 +7,8 @@
 				"type": "address[]"
 			},
 			{
-				"internalType": "contract KidthereumToken",
-				"name": "_KidthereumTokenContract",
+				"internalType": "contract Paws",
+				"name": "_PawsContract",
 				"type": "address"
 			},
 			{
@@ -146,7 +146,7 @@
 					}
 				],
 				"indexed": false,
-				"internalType": "struct KidthereumStaking.rewardsQuantity",
+				"internalType": "struct PocketPalsStaking.rewardsQuantity",
 				"name": "oldDailyRewards",
 				"type": "tuple"
 			},
@@ -169,7 +169,7 @@
 					}
 				],
 				"indexed": false,
-				"internalType": "struct KidthereumStaking.rewardsQuantity",
+				"internalType": "struct PocketPalsStaking.rewardsQuantity",
 				"name": "newDailyRewards",
 				"type": "tuple"
 			}
@@ -197,19 +197,6 @@
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "KidthereumTokenContract",
-		"outputs": [
-			{
-				"internalType": "contract KidthereumToken",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -221,6 +208,19 @@
 		"outputs": [
 			{
 				"internalType": "contract ERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "PawsContract",
+		"outputs": [
+			{
+				"internalType": "contract Paws",
 				"name": "",
 				"type": "address"
 			}
@@ -516,19 +516,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "contract KidthereumToken",
-				"name": "_contractAddress",
-				"type": "address"
-			}
-		],
-		"name": "updateKidthereumTokenContract",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "_id",
 				"type": "uint256"
@@ -540,6 +527,19 @@
 			}
 		],
 		"name": "updateNFTContract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract Paws",
+				"name": "_contractAddress",
+				"type": "address"
+			}
+		],
+		"name": "updatePawsContract",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
