@@ -72,16 +72,14 @@ function StakeApp() {
             let i;
             for (i = 0; i < nfts.length; i++) {
 
-                const nftResponse = await fetch(`https://mygateway.mypinata.cloud/ipfs/${nfts[i]}`, {
+                let nftId = nfts[i].tokenId;
+                let tjson = nfts[i].tokenURIJson;
+                const nftResponse = await fetch(`https://mygateway.mypinata.cloud/ipfs/${tjson}`, {
                     headers: {
                         Accept: "application/json",
                     },
                 });
                 const nft = await nftResponse.json();
-
-                let a = nfts[i];
-                let b = a.split("/")[1];
-                let nftId = b.split(".")[0];
 
                 const nftImg = `https://mygateway.mypinata.cloud/ipfs/${nft.image.substring(7, nft.image.length)}`;
                 nftObj[i] = { image: nftImg, name: nft.name, id: nftId };
@@ -130,7 +128,6 @@ function StakeApp() {
         );
     }
 
-
     return (
         <>
             {data.loading ?
@@ -146,15 +143,15 @@ function StakeApp() {
             }
 
             {modalActive ?
-            <>
-                <Modal
-                    nft={nftStakeDetail}
-                    closeFunc={setModalActive}
-                    data={data}
-                    blockchain={blockchain}
-                    contractAddress={contractAddress}
-                />
-                {document.querySelector("body").style.overflow = "hidden"}</>
+                <>
+                    <Modal
+                        nft={nftStakeDetail}
+                        closeFunc={setModalActive}
+                        data={data}
+                        blockchain={blockchain}
+                        contractAddress={contractAddress}
+                    />
+                    {document.querySelector("body").style.overflow = "hidden"}</>
                 : document.querySelector("body").style.overflow = ""
             }
 

@@ -85,13 +85,17 @@ export const fetchData = (acc) => {
         var i = 0;
         while (i < Number(balanceOf)) {
 
+          let tid = walletOfOwner[i];
           let tokenURI = await store
             .getState()
-            .blockchain.smartContract.methods.tokenURI(walletOfOwner[i])
+            .blockchain.smartContract.methods.tokenURI(tid)
             .call();
           if (tokenURI) {
             let tokenURIJson = tokenURI.substring(7, tokenURI.length);
-            nfts.push(tokenURIJson);
+            nfts.push({
+              tokenId: tid,
+              tokenURIJson: tokenURIJson
+            });
           }
           i++;
         }
